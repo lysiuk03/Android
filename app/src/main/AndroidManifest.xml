@@ -18,6 +18,12 @@
         android:theme="@style/Theme.Shop"
         tools:targetApi="31">
         <activity
+            android:name=".CategoryCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".category.CategoryCardViewHolder"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
