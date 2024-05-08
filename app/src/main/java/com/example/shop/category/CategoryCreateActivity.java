@@ -1,4 +1,4 @@
-package com.example.shop;
+package com.example.shop.category;
 
 import android.os.Bundle;
 import android.util.Log;
