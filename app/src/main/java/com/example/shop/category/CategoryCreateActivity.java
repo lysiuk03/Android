@@ -21,6 +21,7 @@ import com.example.shop.MainActivity;
 import com.example.shop.R;
 import com.example.shop.dto.category.CategoryItemDTO;
 import com.example.shop.services.ApplicationNetwork;
+import com.example.shop.utils.CommonUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.File;
@@ -102,6 +103,7 @@ public class CategoryCreateActivity extends BaseActivity {
                 RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageFile);
                 imagePart = MultipartBody.Part.createFormData("image", imageFile.getName(), requestFile);
             }
+            CommonUtils.showLoading();
             ApplicationNetwork.getInstance()
                     .getCategoriesApi()
                     .create(params, imagePart)
@@ -114,11 +116,12 @@ public class CategoryCreateActivity extends BaseActivity {
                                 startActivity(intent);
                                 finish();
                             }
+                            CommonUtils.hideLoading();
                         }
 
                         @Override
                         public void onFailure(Call<CategoryItemDTO> call, Throwable throwable) {
-
+                            CommonUtils.hideLoading();
                         }
                     });
         }
